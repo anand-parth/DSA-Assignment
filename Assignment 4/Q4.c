@@ -25,7 +25,7 @@ void combinationUtil(int arr[], int n, int r, int index, int data[], int i)
         }
         for(int j=0;j<n;j++)
         	cost = cost + abs(height[j]-temp[j])*costarr[j];
-        // printf("%d ",cost);
+        printf("%d ",cost);
         // Uncomment out above line to see cost values for different combinations.
         if(cost<min)
         {
