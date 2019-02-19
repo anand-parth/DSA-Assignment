@@ -51,7 +51,7 @@ int main()
                     sum += c[j]*h[j];
                 }
             }
-            printf("%d ",sum);
+            // printf("%d ",sum);
             if(sum < cost)
             {
                 cost = sum;
