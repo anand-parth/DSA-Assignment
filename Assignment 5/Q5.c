@@ -2,6 +2,35 @@
 #include<stdlib.h>
 #include<math.h>
 #define loop(i,n) for(int i=0;i<n;i++)
+void swap(int *x, int *y)
+{
+	int t= *x;
+	*x = *y;
+	*y = t;
+}
+void bubbleSort(int a[], int n)
+{
+	loop(i,n-1)
+	{
+		loop(j,n-1-i)
+		{
+			if(a[j]>a[j+1])
+			{
+				swap(&a[j], &a[j+1]);
+				
+			}
+		}
+	}
+}
+int power(int b, int e)
+{
+	int res = 1;
+	for(int i=1;i<=e;i++)
+	{
+		res = res*b;
+	}
+	return res;
+}
 int main()
 {
 	int n;
@@ -9,6 +38,7 @@ int main()
 	int a[n];
 	loop(i,n)
 		scanf("%d",&a[i]);
+	bubbleSort(a,n);
 	int s =0;
 	loop(i,n)
 		s = s + a[i];
@@ -52,43 +82,25 @@ int main()
 				removed2 = b1[1];
 		}		 
 	}
-	int c = 0, co = 0;
-	loop(i,n)
-	{
-		if(a[i] == 0)
-			c++;
-	}
-	if(c == n)
-		printf("0");
-	c = 0;
+	int res[100];
+	int ct = 0;
 	for(int i=n-1;i>=0;i--)
 	{
 		if(a[i] == removed1 || a[i] == removed2)
-			c++;
+			;
 		else
-		{
-			if(a[i] == 0)
-			{
-				if(c > 0)
-		       		{
-					printf("0");
-					break;
-				}
-				else if(co > 0)
-				{
-					printf("0");
-				}
-			}
-			else
-			{
-				co ++;
-				printf("%d",a[i]);
-			}
-		}
+			res[ct++] = a[i];
 	}
-	if(c == n)
-		printf("No such number");
+	int sum = 0, flag = 0;
+	for(int i=0;i<ct;i++)
+	{
+		flag = 1;
+		sum = sum + res[i]*power(10,ct-1-i);
+	}
+	if(flag)
+		printf("%d\n",sum);
+	else
+		printf("No such number\n");
 
-	printf("\n");
 	return 0;
 }
