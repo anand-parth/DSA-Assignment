@@ -64,7 +64,6 @@ void dfs(int vis[n+1],int s,int src,int path[n+1],int c,int dis)
 	{
 		if(res[src][i]>0 && !v[i])
 		{
-			// printf("%d ABCD ",i);
 			p[c]=i;
 			dfs(v,s,i,p,c+1,dis+res[src][i]);
 		}

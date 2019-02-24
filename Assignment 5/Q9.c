@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #define loop(i,n) for(int i=0;i<n;i++)
+int gc = 9999;
 void swap(int *x, int *y)
 {
 	int t= *x;
@@ -21,7 +22,7 @@ void bubbleSort(int a[], int n)
 		}
 	}
 }
-int checkcount(int a[], int l, int r, int c)
+void checkcount(int a[], int l, int r, int c)
 {
 	if(2*a[l] - a[r] >= 0)
 	{
@@ -43,7 +44,9 @@ int checkcount(int a[], int l, int r, int c)
 				break;
 		}
 		c = c + ct;
-		return c;
+		if(c < gc)
+			gc = c;
+		return ;
 	}
 	else
 	{
@@ -59,7 +62,8 @@ int main()
 	loop(i,n)
 		scanf("%d", &a[i]);
 	bubbleSort(a, n);
-	printf("%d\n", checkcount(a,0,n-1,0));
+	checkcount(a,0,n-1,0);
+	printf("%d\n", gc);
 
 	return 0;
 }
