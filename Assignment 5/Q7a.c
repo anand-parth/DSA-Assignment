@@ -1,4 +1,4 @@
-#include<stdio.h>
+T#include<stdio.h>
 #include<stdlib.h>
 #define loop(i,n) for(int i=0;i<n;i++)
 int res[100][100];

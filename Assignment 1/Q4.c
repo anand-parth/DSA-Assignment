@@ -7,7 +7,7 @@ typedef struct Node
 	struct Node* next;
 	struct Node* prev;
 }Node;
-void insertAtEndSLL(Node** head_ref, int x)
+-void insertAtEndSLL(Node** head_ref, int x)
 {
 	Node *tmp = (Node *)malloc(sizeof(Node));
 	tmp->data=x;

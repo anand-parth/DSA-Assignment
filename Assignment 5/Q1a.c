@@ -57,20 +57,18 @@ int main()
 			c2[i] = 0;
 		}
 		c1[0] = 1;
-		loop(i,n-1)
+		for(int i=1;i<n;i++)
 		{
-			if(g1 < a[i+1])
+			if(g1 < a[i])
 			{
-				// printf("%d A \n",i);
-				c2[i+1] = 1;
-				if(b[i+1] > g2)
-					g2 = b[i+1];
+				c2[i] = 1;
+				c1[i] = 1;
 			}
-			if(g2 < a[i+1])
+			else
 			{
 				// printf("%d B \n",i);
-				c1[i+1] = 1;
-				if(b[i+1] > g1)
+				c1[i] = 1;
+				if(b[i] > g1)
 					g1 = b[i+1];
 			}
 		}
@@ -86,10 +84,20 @@ int main()
 		{
 			loop(i,n)
 			{
-				if(c1[i] == 1)
+				int c =0;
+				if(c1[i] == 1 && c2[i] == 0)
 					printf("IM ");
-				else if(c2[i] == 1)
+				if(c2[i] == 1 && c2[i] == 0) 
 					printf("CA ");
+				else
+				{
+					c++;
+					if(c%2==1)
+						printf("CA ");
+					else
+						printf("IM ");
+
+				}
 			}
 		}
 		printf("\n");
