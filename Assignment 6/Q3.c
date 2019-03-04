@@ -56,7 +56,7 @@ int main()
 		adj[v-1][u-1] = 1;
 	}
 	int count = 0, ct = 0;
-	int res[100] ={0};
+	int res[100] = {0};
 	loop(i,n)
 	{
 		ct = 0;

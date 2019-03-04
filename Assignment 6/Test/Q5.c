@@ -8,6 +8,7 @@ typedef struct Node
 	int data;
 	struct Node* next;
 }Node;
+Node *head;
 void insertAtEndSLL(Node** head_ref, int x)
 {
 	Node *tmp = (Node *)malloc(sizeof(Node));
@@ -23,37 +24,32 @@ void insertAtEndSLL(Node** head_ref, int x)
 		last->next = tmp;
 	}
 }
-void merge(Node *head_ref1, Node* head_ref2, Node *head)
+void merge(Node *head_ref1, Node* head_ref2)
 {
 	Node *tmp1 = head_ref1;
 	Node *tmp2 = head_ref2;
-	Node *temp;
-	temp = head;
 	while(tmp1 != NULL && tmp2 != NULL)
 	{
 		if(tmp1->data <= tmp2->data)
 		{
-			temp->next = tmp1;
+			insertAtEndSLL(&head, tmp1->data);
 			tmp1 = tmp1->next;
 		}
 		else
 		{
-			temp->next = tmp2;
+			insertAtEndSLL(&head, tmp2->data);
 			tmp2 = tmp2->next;
 		}
-		temp = temp->next;
 	}
 	while(tmp1!= NULL)
 	{
-		temp->next = tmp1;
+		insertAtEndSLL(&head, tmp1->data);
 		tmp1 = tmp1->next;
-		temp = temp -> next;
 	}
 	while(tmp2!= NULL)
 	{
-		temp->next = tmp2;
+		insertAtEndSLL(&head, tmp2->data);
 		tmp2 = tmp2->next;
-		temp = temp -> next;
 	}
 }
 void traverse(Node *head_ref)
@@ -70,7 +66,6 @@ int main()
 {
 	Node *head1 = NULL;
 	Node *head2 = NULL;
-	Node *head = (Node *)malloc(sizeof(Node));
 	int n1;
 	scan(n1);
 	loop(i,n1)
@@ -87,7 +82,7 @@ int main()
 		scan(u);
 		insertAtEndSLL(&head2, u);
 	}
-	merge(head1,head2,head);
-	traverse(head->next);
+	merge(head1,head2);
+	traverse(head);
 	return 0;
 }

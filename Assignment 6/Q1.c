@@ -51,28 +51,30 @@ int main()
 			scan1(r[i][j]);
 		}
 	}
-	int c[n];
-	loop(i,n)
-		c[i] = a[i];
-	bubbleSort(c,n);
-	int ct = 0;
 	for(int t=0;t<n;t++)
 	{
 		for(int i=0;i<n;i++)
-		{
-			for(int j=i+1;j<n;j++)
+		{	
+			int temp = a[i];
+			int ti,tj;
+			for(int j=i;j<n;j++)
 			{
-				// print1(j);
-				ct = 1;
-				if(a[j] < a[i] && j!=i && r[i][j] == 1)
-					swap(&a[j],&a[i]);
+				if(a[j] < a[i] && r[i][j])
+				{
+					ti = i;
+					tj = j;
+					temp = a[j];
+				}
+			}
+			if(temp != a[i])
+			{
+				a[tj] = a[ti];
+				a[ti] = temp;
 			}
 		}
 	}
 	loop(i,n)
-	{
-		printf("%d ",a[i]);
-	}
+		printf("%d ",a[i]);	
 	return 0;
 }
 		

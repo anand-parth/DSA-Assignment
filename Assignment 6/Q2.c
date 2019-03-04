@@ -24,12 +24,14 @@ void asc()
 		}
 		if(temp!=a[k][i])
 		{			
-			temp = a[k][tj];
 			a[k][tj] = a[k][ti];
 			a[k][ti] = temp;
 			if(ans[tj][ti] == 0)
-			p++;
+			{
+				p++;
+			}
 			ans[ti][tj] = 1;
+			ans[tj][ti] = 1;
 		}
 	}
 	}
@@ -57,9 +59,13 @@ void desc()
 			temp = a[k][tj];
 			a[k][tj] = a[k][ti];
 			a[k][ti] = temp;
-			if(ans[tj][ti] == 0)			
-			p++;
+			if(ans[tj][ti] == 0)
+			{
+				p++;
+			}
 			ans[tj][ti] = 1;
+			ans[tj][ti] = 1;
+
 		}
 	}
 	}
@@ -86,7 +92,7 @@ int main()
 
 	for(int i=0; i<m; i++)
 	{
-		for(int j=0; j<m; j++)
+		for(int j=i+1; j<m; j++)
 		{
 			if(ans[i][j] == 1)
 			{
