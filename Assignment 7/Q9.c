@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include<stdio.h>												
 #include<stdlib.h>
 #include<math.h>
 #include<limits.h>
@@ -42,18 +42,18 @@ void bubbleSort(int a[], int n)
 			int c1=0, c2=0;
 			while(t1 > 0)
 			{
-				t1/=10;
+				t1= t1/10;
 				c1++;
 			}
 			while(t2>0)
 			{
-				t2/=10;
+				t2= t2/10;
 				c2++;
 			}
 			int val1 = a[j]*power(10,c2) + a[j+1];
 			int val2 = a[j+1]*power(10,c1) + a[j];
 			if(val1 < val2)
-				swap(&a[j], &a[j+1]);.
+				swap(&a[j], &a[j+1]);
 
 		}
 	}

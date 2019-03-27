@@ -84,7 +84,7 @@ int main()
 		{
 			if(a[i][j] != 1 && i != j)
 			{
-				if(!((dis_s[i]+dis_t[j]+1) < D || (dis_s[j]+dis_t[i]+1) < D))
+				if((dis_s[i]+dis_t[j]+1) >= D && (dis_s[j]+dis_t[i]+1) >= D)
 					res++;
 			}
 		}

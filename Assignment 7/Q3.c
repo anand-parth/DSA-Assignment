@@ -12,50 +12,36 @@
 #define print3(a,b,c) printf("%d %d %d\n", a, b, c)
 
 #define loop(i,n) for(int i=0;i<n;i++)
-int a[100], value[100];
+int a[100];
 
 int main()
 {
     int n;
     scan1(n);
-    int root = -1;
+    int root;
     for(int i=1; i<=n; i++)
     {
         scan1(a[i]);
-        if(i == a[i])
-            root = i;
     }
-    
-    int val = 0, ans = 0;
     for(int i=1; i<=n; i++)
     {
-        if(value[i] != 1)
-        {
-            val++;
-            value[i] = val;
-            int u = i;
-            while(value[a[u]] == 0)
-            {
-                value[a[u]] = val;
-                u = a[u];
-            }
-
-            if(value[a[u]] == val)
-            {
-                if(root == -1)
-                    root = u;
-
-                if(a[u] != root)
-                {
-                    ans++;
-                    a[u] = root;
-                }
-            }
-        }
+    	if(a[i] == i)
+    	{
+    		root = i;
+    		break;
+    	}
     }
-    print1(ans);
+    int ans = 0;
+    for(int i=root+1;i<=n;i++)
+    {
+    	if(a[i] == i)
+    	{
+    		ans++;
+    		a[i] = root;
+    	}
+    }
+  	print1(ans);
     for(int i=1; i<=n; i++)
         printf("%d ", a[i]);
-
     return 0;
 }

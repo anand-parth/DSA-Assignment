@@ -19,7 +19,7 @@
 		
 int main()
 {
-	int n;
+	int n;`
 	scan1(n);
 	if(n <= 10)
 	{
