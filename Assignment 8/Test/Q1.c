@@ -12,7 +12,7 @@
 #define print3(a,b,c) printf("%d %d %d\n", a, b, c)
 
 #define loop(i,n) for(int i=0;i<n;i++)
-#define min(a,b) (a<b)?a:b		
+
 int a[100]; 
 
 int main()

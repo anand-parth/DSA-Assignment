@@ -27,7 +27,7 @@ void bubbleSort(int a[], int n)
 	{
 		loop(j,n-1-i)
 		{
-			if(a[j]<a[j+1])
+			if(a[j]>a[j+1])
 			{
 				swap(&a[j], &a[j+1]);
 				
@@ -49,16 +49,32 @@ int main()
 	loop(i,n)
 		scan1(a[i]);
 	bubbleSort(a,n);
+	loop(i,n)
+		printf("%d ", a[i]);
+	pn();
+	loop(i,n)
+	{
+		if(a[i] == 0)
+			continue;
+		if(a[i] != 0)
+		{
+			swap(&a[i],&a[0]);
+			swap(&a[i+1],&a[1]);
+			break;
+		}
+	}
+	loop(i,n)
+		print1(a[i]);
 	int n1=0, n2=0;
 	int c=0;
 	for(int i=0;i<n-1;i+=2)
 	{
-		n1 = n1 + a[i]*power(10,c);
-		n2 = n2 + a[i+1]*power(10,c);
+		n1 = n1*10 + a[i];
+		n2 = n2*10 + a[i+1];
 		c++;
 	}
 	if(n%2 == 1)
-		n1 = n1 + a[n-1]*power(10,c);
+		n1 = n1*10 + a[n-1];
 	print1(n1+n2);
 
 	return 0;

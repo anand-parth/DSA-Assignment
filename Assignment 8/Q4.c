@@ -57,8 +57,7 @@ int main()
 			ct ++;
 			a[0] = a[0] + 2*a[1];
 			a[1] = 9999;
-		}
-		
+		}		
 		bubbleSort(a,n);
 		if(a[0] >= k)
 			break;

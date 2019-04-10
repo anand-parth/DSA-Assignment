@@ -1,0 +1,17 @@
+RA:
+R1<- πpid(σcolour==’red’(parts))
+R2<- πpid,sname(supplier ⨝ catalog)  products
+Result<-R2 ÷ R1 
+
+TRC: { s.sname| s ∈ supplier ∧ ∃ p ((p ∈ parts ∧ p.colour== ‘red’) ⇒ ∃ c(c ∈ catalog ∧ s.sid== c.sid ∧ c.pid==p.pid))}
+
+DRC: {<b> | <a,b,c> ∈ supplier ∧ ∃d∃e∃f ((<d,e,f> ∈ parts ∧ f== ‘red’ ) ⇒ ∃g∃h∃i (<g,h,i> ∈ catalog ∧ a==g ∧ d==h))}
+
+
+SQL: 
+R1<- select sid,pid from parts,catalog where parts.pid==catalog.pid and parts.colour== ‘red’;
+R2<- select sid from R1 group by sid having count(pid)==(select count(*) from parts where colour== ‘red’);
+Result<- select sname from supplier where sid in(select sid from R2);
+
+Parth Anand
+2016B4A70873H
