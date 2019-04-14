@@ -25,43 +25,41 @@ void swap(int *x, int *y)
     *x= *y;
     *y = t;
 }
-void shiftUp(int id)
+void shiftUp(int id,int type)
 {
     int parent, tmp;
     if(id != 0)
     {
         parent = (id-1) / 2;
-        if(arr[parent] < arr[id])
-        {
-            swap(&arr[parent], &arr[id]);
-            shiftUp(parent);
+        if(type == 1)
+        {    
+            if(arr[parent] < arr[id])
+            {
+                swap(&arr[parent], &arr[id]);
+                shiftUp(parent,1);
+            }
         }
+        if(type == 0)
+        {
+            if(arr2[parent] > arr2[id])
+            {
+                swap(&arr2[parent], &arr2[id]);
+                shiftUp(parent,0);
+            }
+        }    
     }
 } 
 void insertintoMaxHeap(int data)
 {
     size++;
     arr[size-1] = data;
-    shiftUp(size-1);
+    shiftUp(size-1, 1);
 }
-void shiftUp2(int id)
-{
-    int parent, tmp;
-    if(id != 0)
-    {
-        parent = (id-1) / 2;
-        if(arr2[parent] > arr2[id])
-        {
-            swap(&arr2[parent], &arr2[id]);
-            shiftUp2(parent);
-        }
-    }
-} 
 void insertintoMinHeap(int data)
 {
     size2++;
     arr2[size2-1] = data;
-    shiftUp2(size2-1);
+    shiftUp(size2-1, 0);
 }   
 void shiftDown(int id,int arr[])
 {

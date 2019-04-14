@@ -57,6 +57,7 @@ int main()
 				high = num;
 			if(num < low)
 				low = num;
+			// print2(high,low);
 		}
 		else if(qt == 2)
 		{
