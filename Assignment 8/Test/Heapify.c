@@ -23,7 +23,6 @@ void swap(int *x, int *y)
 	*x= *y;
 	*y = t;
 }
-
 void MaxHeapify(int arr[], int i, int n) 
 { 
     int l = 2*i + 1; 
@@ -39,7 +38,6 @@ void MaxHeapify(int arr[], int i, int n)
         MaxHeapify(arr, largest, n); 
     } 
 }
-
 void MinHeapify(int arr[], int i, int n)
 {
 	int l = 2*i + 1;

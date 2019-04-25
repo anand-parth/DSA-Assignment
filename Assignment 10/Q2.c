@@ -45,8 +45,8 @@ void insertintoMaxHeap(int data, int arr[])
     shiftUp(size-1);
 }
 void shiftDown(int id)
-{
-    int minid, tmp;
+{    
+    int minid;
     int l = 2*id + 1;
     int r = 2*id + 2;
     if(r >= size)

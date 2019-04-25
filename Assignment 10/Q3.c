@@ -84,8 +84,8 @@ void shiftDown(int id,int arr[])
     {
         swap(&arr[minid],&arr[id]);
         shiftDown(minid,arr);
-    }
-} 
+    
+}} 
 void delete1()
 {
     arr[0] = arr[size-1];

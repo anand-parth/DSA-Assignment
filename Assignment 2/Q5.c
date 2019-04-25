@@ -54,7 +54,7 @@
 		// {
 		// 	for(int j=1;j<=v;j++)
 		// 	{
-		// 		scanf("%d", &a[i][j]);w
+		// 		scanf("%d", &a[i][j]);
 		// 	}
 		// }
 		int cnt=0;

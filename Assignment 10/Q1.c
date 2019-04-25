@@ -22,8 +22,10 @@ typedef struct node
 	int sum;
 	int id1, id2;
 }Tuple;	
+
 Tuple arr[100];
 int size = 0;
+
 void swap(Tuple *x, Tuple *y)
 {
 	Tuple t = *x;
@@ -32,7 +34,7 @@ void swap(Tuple *x, Tuple *y)
 }
 void shiftUp(int id)
 {
-    int parent, tmp;
+    int parent;
     if(id != 0)
     {
         parent = (id-1) / 2;
@@ -47,7 +49,7 @@ void insertintoMaxHeap(int data, int i, int j)
 {
     size++;
     arr[size-1].sum = data;
-    arr[size-1].id1 = i;
+    arr[size-1].id1 = i;	
     arr[size-1].id2 = j;
     shiftUp(size-1);
 }
